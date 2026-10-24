@@ -1,0 +1,226 @@
+.cover {
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 40%, #a9505d 0, #873340 58%, #64232e 100%);
+  transition: opacity 700ms ease, visibility 700ms ease;
+}
+
+.cover.is-opening {
+  pointer-events: none;
+}
+
+.cover.is-revealing {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.envelope-scene {
+  position: relative;
+  width: min(100%, 410px);
+  height: min(74vh, 560px);
+  min-height: 450px;
+  perspective: 1100px;
+}
+
+.invitation-card {
+  position: absolute;
+  z-index: 1;
+  top: 3%;
+  left: 8%;
+  display: flex;
+  width: 84%;
+  height: 76%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d9bd77;
+  background:
+    radial-gradient(ellipse at center, #fffaf0 0, #f5e6d4 100%);
+  box-shadow: 0 12px 35px #35131c55;
+  color: #64232e;
+  transition: transform 1100ms cubic-bezier(.2,.75,.25,1), opacity 800ms ease;
+}
+
+.card-ornament {
+  width: min(88%, 250px);
+  height: 84px;
+  object-fit: contain;
+  margin: -4px 0 2px;
+}
+
+.card-kicker,
+.card-date {
+  color: #873340;
+  font-size: .58rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.card-quote {
+  max-width: 250px;
+  margin: 6px 12px 0;
+  font: italic 1rem/1.35 "Cormorant Garamond", serif;
+}
+
+.card-invitation {
+  margin: 8px 0;
+  font: italic .82rem "Cormorant Garamond", serif;
+}
+
+.card-names span {
+  color: #b89959;
+}
+
+.card-names {
+  margin: 0;
+  font: 2rem "Great Vibes", cursive;
+}
+
+.card-divider {
+  margin: 16px 0 8px;
+  color: #b89959;
+}
+
+.envelope {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 12%;
+  left: 0;
+  height: 57%;
+  filter: drop-shadow(0 18px 22px #35131c66);
+  transition: transform 900ms ease, opacity 700ms ease;
+}
+
+.envelope-back,
+.envelope-pocket,
+.envelope-flap {
+  position: absolute;
+  inset: 0;
+}
+
+.envelope-back {
+  background: #f3dfc1;
+  border: 1px solid #d9bd77;
+}
+
+.envelope-pocket {
+  z-index: 2;
+  background: linear-gradient(145deg, #f7e9d3, #e5c8a7);
+  clip-path: polygon(0 0, 50% 57%, 100% 0, 100% 100%, 0 100%);
+}
+
+.envelope-pocket::before,
+.envelope-pocket::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+}
+
+.envelope-pocket::before {
+  background: #e4c5a2;
+  clip-path: polygon(0 0, 50% 58%, 0 100%);
+}
+
+.envelope-pocket::after {
+  background: #eed7b8;
+  clip-path: polygon(100% 0, 50% 58%, 100% 100%);
+}
+
+.envelope-flap {
+  z-index: 3;
+  transform-origin: 50% 0;
+  background: linear-gradient(160deg, #f8ecd8, #e9cfaa);
+  clip-path: polygon(0 0, 100% 0, 50% 62%);
+  transition: transform 850ms cubic-bezier(.2,.7,.25,1);
+}
+
+.envelope-seal {
+  position: absolute;
+  z-index: 4;
+  top: 52%;
+  left: 50%;
+  display: grid;
+  width: 78px;
+  height: 78px;
+  padding: 0;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  border: 2px solid #e9ce8e;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, #a84b55, #762a37 72%);
+  box-shadow: 0 4px 12px #35131c66, inset 0 0 0 4px #873340;
+  color: #f9e7b8;
+  cursor: pointer;
+  font: 1.5rem "Cormorant Garamond", serif;
+  transition: transform 450ms ease, opacity 450ms ease;
+}
+
+.seal-ampersand {
+  color: #e9ce8e;
+  font-size: 1rem;
+}
+
+.envelope-prompt {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: #f7e9d9;
+  font-size: .65rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  animation: seal-prompt 2s ease-in-out infinite;
+}
+
+.cover.is-opening .envelope-flap {
+  transform: rotateX(180deg);
+}
+
+.cover.is-opening .envelope-seal {
+  transform: translate(-50%, -50%) scale(1.5);
+  opacity: 0;
+}
+
+.cover.is-opening .invitation-card {
+  transform: translateY(-105px) scale(1.03);
+}
+
+.cover.is-opening .envelope {
+  transform: translateY(65px);
+  opacity: 0;
+}
+
+.cover.is-opening .envelope-prompt {
+  opacity: 0;
+}
+
+@keyframes seal-prompt {
+  50% { opacity: .65; }
+}
+
+@media (max-width: 480px) {
+  .envelope-scene {
+    height: min(70vh, 520px);
+    min-height: 410px;
+  }
+
+  .card-names {
+    font-size: 1.7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover,
+  .invitation-card,
+  .envelope,
+  .envelope-flap,
+  .envelope-seal {
+    transition-duration: 1ms;
+  }
+
+  .envelope-prompt {
+    animation: none;
+  }
+}

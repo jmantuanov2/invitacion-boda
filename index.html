@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#873340">
+<title>Karla & Jefersson | Nuestra boda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="envelope.css">
+<link rel="stylesheet" href="invitation-details.css">
+</head>
+<body>
+<div class="cover" id="cover">
+  <div class="envelope-scene">
+    <article class="invitation-card" aria-hidden="true">
+      <img class="card-ornament" src="assets/ornamento-floral.svg" alt="">
+      <p class="card-kicker">Nos vamos a casar</p>
+      <p class="card-quote">De todas las historias de amor,<br>la nuestra es nuestra favorita.</p>
+      <p class="card-names">Karla <span>&</span> Jefersson</p>
+      <p class="card-invitation">Acompáñanos a comenzar<br>este nuevo capítulo</p>
+      <p class="card-date">19 · 12 · 2026</p>
+    </article>
+    <div class="envelope">
+      <div class="envelope-back"></div>
+      <div class="envelope-pocket"></div>
+      <div class="envelope-flap"></div>
+      <button id="open" class="envelope-seal" aria-label="Abrir invitación">
+        <span>J<span class="seal-ampersand">&</span>K</span>
+      </button>
+    </div>
+    <p class="envelope-prompt">Toca el sello para abrir tu invitación</p>
+  </div>
+</div>
+
+<main id="site" class="hidden">
+  <section class="hero">
+    <p class="smallcaps">Con mucha alegría en nuestros corazones</p>
+    <img class="floral-ornament" src="assets/ornamento-floral.svg" alt="">
+    <img class="hero-photo" src="assets/foto-01.jpg" alt="Fotografía de Karla y Jefersson">
+    <h1 class="script">Karla Santillán<br><span>&</span><br>Jefersson Mantuano</h1>
+    <h2 class="script subheading">Nuestra Boda Civil</h2>
+    <p class="intro-text">Nos vamos a casar</p>
+    <p class="verse">“De todas las historias de amor, la nuestra es nuestra favorita. Acompáñanos a comenzar este nuevo capítulo.”</p>
+    <div class="gold-rule"></div>
+    <p class="smallcaps">Sábado</p>
+    <p class="script date-large">19 de diciembre de 2026</p>
+    <div class="countdown">
+      <div><strong id="days">--</strong><span>Días</span></div>
+      <div><strong id="hours">--</strong><span>Horas</span></div>
+      <div><strong id="minutes">--</strong><span>Minutos</span></div>
+      <div><strong id="seconds">--</strong><span>Segundos</span></div>
+    </div>
+  </section>
+
+  <section class="section parents">
+    <div class="ornate">
+      <p class="smallcaps">Con el cariño de nuestras familias</p>
+      <h2 class="serif">Nuestros Padres</h2>
+      <p class="script">Padres del novio</p>
+      <p class="family-names">Agustín Mantuano<br>Jacinta Valero</p>
+      <div class="gold-rule"></div>
+      <p class="script">Padres de la novia</p>
+      <p class="family-names">Luis Santillán<br>Carmen Ashqui</p>
+    </div>
+  </section>
+
+  <section class="section witnesses">
+    <div class="wreath">❧ <span>Testigos</span> ❧</div>
+    <p class="script witness-name">Miguel Cedeño</p>
+    <p class="script witness-name">Diana Heredia</p>
+  </section>
+
+  <section class="section events">
+    <p class="script section-script">Ceremonia</p>
+    <img class="venue-photo" src="assets/ceremonia.jpg" alt="Fotografía del Registro Civil de Puyo">
+    <h2 class="serif">Ceremonia Civil</h2>
+    <p>Registro Civil Puyo</p>
+    <p>Av. Francisco de Orellana</p>
+    <p class="event-time">16:00</p>
+    <a class="map-button" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Registro+Civil+Puyo+Ecuador">Ver mapa 📍</a>
+
+    <p class="script section-script second-event">Celebración</p>
+    <img class="venue-photo" src="assets/recepcion.jpg" alt="Fotografía del salón de recepción">
+    <h2 class="serif">Recepción</h2>
+    <p>La Bella Vista · Puyo</p>
+    <p class="event-time">19:00</p>
+    <a class="map-button" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=La+Bella+Vista+Puyo+Ecuador">Ver mapa 📍</a>
+  </section>
+
+  <section class="section dress">
+    <p class="script section-script">Código de vestimenta</p>
+    <h2 class="serif">Semi formal</h2>
+    <p>Nos encantará compartir este día tan especial con ustedes.</p>
+    <div class="swatches"><i></i><i></i><i></i><i></i></div>
+  </section>
+
+  <section class="section rsvp">
+    <p class="script section-script">Esperamos contar con usted</p>
+    <h2 class="serif">Confirme su asistencia</h2>
+    <p>Su presencia hará aún más especial este día.</p>
+    <a class="whatsapp" id="waKarla" target="_blank" rel="noopener">Confirmar con Karla · WhatsApp</a>
+    <a class="whatsapp secondary" id="waJefersson" target="_blank" rel="noopener">Confirmar con Jefersson · WhatsApp</a>
+  </section>
+
+  <section class="section gallery">
+    <p class="script section-script">Nuestra historia</p>
+    <h2 class="serif">Momentos juntos</h2>
+    <div class="photos">
+      <img src="assets/foto-02.jpg" alt="Karla y Jefersson juntos">
+      <img src="assets/foto-03.jpg" alt="Karla y Jefersson compartiendo un momento">
+      <img src="assets/foto-01.jpg" alt="Retrato de los novios">
+    </div>
+  </section>
+
+  <section class="section music">
+    <p class="script section-script">Una melodía para nuestro amor</p>
+    <button id="musicButton" class="music-button" aria-label="Activar música">♫ Activar música</button>
+    <audio id="music" preload="auto" loop playsinline><source src="assets/musica.mp3" type="audio/mpeg"></audio>
+    <p class="tiny-note">La música de nuestro día también nos acompañará en esta invitación.</p>
+  </section>
+
+  <footer>
+    <p class="script">Con amor para siempre</p>
+    <h2 class="script">Karla <span>&</span> Jefersson</h2>
+    <p>19 · 12 · 2026 · Puyo, Ecuador</p>
+  </footer>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

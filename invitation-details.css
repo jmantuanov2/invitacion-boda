@@ -1,0 +1,152 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero::before {
+  position: absolute;
+  z-index: -1;
+  top: 8%;
+  left: 50%;
+  width: min(90vw, 580px);
+  height: 420px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, #a94c5845, transparent 70%);
+  content: "";
+}
+
+.hero .floral-ornament {
+  display: block;
+  width: min(100%, 360px);
+  height: 130px;
+  object-fit: contain;
+  margin: 8px auto -8px;
+}
+
+.hero-photo {
+  box-shadow: 0 12px 32px #35131c55;
+}
+
+.hero .verse {
+  max-width: 480px;
+  color: #f3dfd2;
+}
+
+.section-script {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+}
+
+.section-script::before,
+.section-script::after {
+  color: #e8c8bd;
+  content: "\273F";
+  font: 1rem "Cormorant Garamond", serif;
+}
+
+.ornate {
+  position: relative;
+  border-width: 1px;
+  background: linear-gradient(145deg, #873340aa, #64232e88);
+  box-shadow: inset 0 0 0 7px #d9bd7709, 0 15px 35px #35131c30;
+}
+
+.ornate::before,
+.ornate::after {
+  position: absolute;
+  left: 50%;
+  width: 125px;
+  height: 48px;
+  transform: translateX(-50%);
+  background: url("assets/ornamento-floral.svg") center / contain no-repeat;
+  content: "";
+  pointer-events: none;
+}
+
+.ornate::before {
+  top: -28px;
+}
+
+.ornate::after {
+  bottom: -28px;
+  transform: translateX(-50%) rotate(180deg);
+}
+
+.family-names {
+  line-height: 1.8;
+}
+
+.events {
+  background:
+    radial-gradient(ellipse at 50% 10%, #91414b, transparent 55%),
+    #7b2c39;
+}
+
+.venue-photo {
+  box-shadow: 0 10px 25px #35131c55;
+}
+
+.dress .serif {
+  color: var(--gold);
+}
+
+.dress .swatches i {
+  width: 28px;
+  height: 28px;
+  box-shadow: 0 2px 8px #35131c55;
+}
+
+.rsvp,
+.gallery,
+.music {
+  position: relative;
+}
+
+.rsvp::before,
+.gallery::before,
+.music::before {
+  display: block;
+  margin: 0 auto 18px;
+  color: var(--rose);
+  content: "\2767  \273F  \2767";
+  font: 1.35rem "Cormorant Garamond", serif;
+  letter-spacing: .2em;
+}
+
+.photos img {
+  box-shadow: 0 8px 24px #35131c44;
+}
+
+.music {
+  background: linear-gradient(180deg, #7b2c39, #873340);
+}
+
+.music-button.is-floating {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  padding: 0;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #a84b55, #64232e 75%);
+  box-shadow: 0 4px 12px #35131c66, inset 0 0 0 3px #d9bd7722;
+  font-size: 0;
+}
+
+.music-button.is-floating::before {
+  color: var(--cream);
+  content: "\266B";
+  font-size: 1.2rem;
+}
+
+@media (max-width: 480px) {
+  .hero .floral-ornament {
+    height: 110px;
+  }
+
+  .section-script {
+    gap: 8px;
+  }
+}
