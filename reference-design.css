@@ -73,7 +73,7 @@
   position: absolute;
   top: 10%;
   left: 50%;
-  z-index: 1;
+  z-index: 3;
   width: min(78%, 320px);
   aspect-ratio: 1.65;
   transform: translateX(-50%);
@@ -760,5 +760,28 @@ footer {
   .photo-carousel .photo-card.is-active {
     animation-duration: .01ms !important;
     transition-duration: .01ms !important;
+  }
+
+  .cover .cover-card {
+    animation-duration: 650ms !important;
+  }
+
+  .cover .envelope-flap,
+  .cover .cover-heart {
+    transition-duration: 350ms !important;
+  }
+
+  .cover.is-revealing {
+    transition-duration: 450ms !important;
+  }
+
+  .cover .cover-particle {
+    animation-name: reduced-cover-particle;
+    animation-duration: 800ms !important;
+  }
+
+  @keyframes reduced-cover-particle {
+    0%, 100% { opacity: 0; }
+    20%, 75% { opacity: .85; }
   }
 }
