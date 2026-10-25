@@ -1,0 +1,515 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero::before {
+  position: absolute;
+  z-index: -1;
+  top: 8%;
+  left: 50%;
+  width: min(90vw, 580px);
+  height: 420px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, #a94c5845, transparent 70%);
+  content: "";
+}
+
+.hero .floral-ornament {
+  display: block;
+  width: min(100%, 360px);
+  height: 130px;
+  object-fit: contain;
+  margin: 8px auto -8px;
+}
+
+.hero-photo {
+  box-shadow: 0 12px 32px #35131c55;
+}
+
+.hero .verse {
+  max-width: 480px;
+  color: #f3dfd2;
+}
+
+.section-script {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+}
+
+.section-script::before,
+.section-script::after {
+  color: #e8c8bd;
+  content: "\273F";
+  font: 1rem "Cormorant Garamond", serif;
+}
+
+.ornate {
+  position: relative;
+  border-width: 1px;
+  background: linear-gradient(145deg, #873340aa, #64232e88);
+  box-shadow: inset 0 0 0 7px #d9bd7709, 0 15px 35px #35131c30;
+}
+
+.ornate::before,
+.ornate::after {
+  position: absolute;
+  left: 50%;
+  width: 125px;
+  height: 48px;
+  transform: translateX(-50%);
+  background: url("assets/ornamento-floral.svg") center / contain no-repeat;
+  content: "";
+  pointer-events: none;
+}
+
+.ornate::before {
+  top: -28px;
+}
+
+.ornate::after {
+  bottom: -28px;
+  transform: translateX(-50%) rotate(180deg);
+}
+
+.family-names {
+  line-height: 1.8;
+}
+
+.events {
+  background:
+    radial-gradient(ellipse at 50% 10%, #91414b, transparent 55%),
+    #7b2c39;
+}
+
+.venue-photo {
+  box-shadow: 0 10px 25px #35131c55;
+}
+
+.dress .serif {
+  color: var(--gold);
+}
+
+.dress .swatches i {
+  width: 28px;
+  height: 28px;
+  box-shadow: 0 2px 8px #35131c55;
+}
+
+.rsvp,
+.gallery,
+.music {
+  position: relative;
+}
+
+.rsvp::before,
+.gallery::before,
+.music::before {
+  display: block;
+  margin: 0 auto 18px;
+  color: var(--rose);
+  content: "\2767  \273F  \2767";
+  font: 1.35rem "Cormorant Garamond", serif;
+  letter-spacing: .2em;
+}
+
+.photos img {
+  box-shadow: 0 8px 24px #35131c44;
+}
+
+.music {
+  background: linear-gradient(180deg, #7b2c39, #873340);
+}
+
+.music-button.is-floating {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  padding: 0;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #a84b55, #64232e 75%);
+  box-shadow: 0 4px 12px #35131c66, inset 0 0 0 3px #d9bd7722;
+  font-size: 0;
+}
+
+.music-button.is-floating::before {
+  color: var(--cream);
+  content: "\266B";
+  font-size: 1.2rem;
+}
+
+@media (max-width: 480px) {
+  .hero .floral-ornament {
+    height: 110px;
+  }
+
+  .section-script {
+    gap: 8px;
+  }
+}
+
+body {
+  background:
+    radial-gradient(ellipse at top, #32302e 0, #111 34rem, #050505 100%);
+  color: #f5f0e9;
+}
+
+#site {
+  width: min(100%, 580px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 1px 0 0;
+  background: #090909;
+  box-shadow: 0 0 70px rgba(0, 0, 0, 0.7);
+}
+
+.hero.lace-panel,
+.events.lace-panel,
+.dress.lace-panel,
+.rsvp.lace-panel,
+.gallery.lace-panel {
+  margin: 24px 12px;
+  padding: 28px 14px;
+  border: 12px solid transparent;
+  border-image: repeating-radial-gradient(circle at 7px 7px, #fff 0 4px, #e4ded6 4.5px 5.5px, #faf8f5 6px 9px) 12 round;
+  background:
+    radial-gradient(ellipse at top, #fff 0, #f2eee8 70%, #fff 100%) padding-box,
+    repeating-radial-gradient(circle at 7px 7px, #fff 0 4px, #e4ded6 4.5px 5.5px, #faf8f5 6px 9px) border-box;
+  color: #352c29;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+}
+
+.hero.lace-panel::before,
+.events.lace-panel::before,
+.dress.lace-panel::before,
+.rsvp.lace-panel::before,
+.gallery.lace-panel::before {
+  display: none;
+}
+
+.hero.lace-panel .smallcaps,
+.events.lace-panel .smallcaps,
+.dress.lace-panel .smallcaps,
+.rsvp.lace-panel .smallcaps,
+.gallery.lace-panel .smallcaps {
+  color: #776454;
+}
+
+.hero.lace-panel .hero-photo {
+  width: min(78%, 350px);
+  height: 360px;
+  border: 8px solid #fff;
+  outline: 1px solid #b6a58f;
+  padding: 0;
+  box-shadow: 0 10px 25px rgba(37, 28, 23, 0.25);
+}
+
+.hero.lace-panel h1 {
+  color: #251e1b;
+}
+
+.hero.lace-panel .script span,
+footer h2 span {
+  color: #9a7957;
+}
+
+.hero.lace-panel .subheading,
+.hero.lace-panel .intro-text,
+.hero.lace-panel .verse,
+.hero.lace-panel .date-large {
+  color: #685648;
+}
+
+.hero.lace-panel .countdown div {
+  background: #fff;
+  border-color: #c6b9a9;
+  box-shadow: inset 0 0 0 1px rgba(154, 121, 87, 0.12);
+}
+
+.hero.lace-panel .countdown strong {
+  color: #4d4038;
+}
+
+.parents {
+  padding: 54px 20px;
+  background: #101010;
+}
+
+.parents .ornate {
+  border-color: #e8dfd3;
+  outline-color: rgba(255, 255, 255, 0.25);
+  background: #f5f0e9;
+  color: #382e28;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.parents .serif,
+.parents .script,
+.parents .family-names {
+  color: #4b3c32;
+}
+
+.witnesses {
+  padding: 48px 20px;
+  background: #101010;
+}
+
+.events.lace-panel {
+  padding: 28px 14px 32px;
+}
+
+.events.lace-panel > .serif,
+.dress.lace-panel .serif,
+.rsvp.lace-panel .serif,
+.gallery.lace-panel .serif {
+  color: #302723;
+}
+
+.events .event-card {
+  max-width: 420px;
+  margin: 24px auto 0;
+  padding: 16px 12px;
+  border-top: 1px solid #c9b9a8;
+}
+
+.events .event-card + .event-card {
+  margin-top: 8px;
+}
+
+.events .section-script {
+  color: #75604d;
+}
+
+.events .section-script::before,
+.events .section-script::after {
+  color: #a48c74;
+}
+
+.events h3.serif,
+.events p:not(.section-script) {
+  color: #40352e;
+}
+
+.events .venue-photo {
+  width: min(100%, 360px);
+  height: 210px;
+  border: 5px solid #fff;
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(48, 36, 27, 0.2);
+}
+
+.events .event-time {
+  font-weight: 500;
+}
+
+.events .map-button {
+  background: #171514;
+  box-shadow: none;
+}
+
+.calendar-card {
+  max-width: 320px;
+  margin: 24px auto 4px;
+  padding: 16px;
+  border: 1px solid #d1c7bc;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.calendar-card .calendar-month {
+  margin: 8px 0 14px;
+  color: #40352e;
+  font: italic 1.45rem "Cormorant Garamond", serif;
+}
+
+.mini-calendar {
+  width: 100%;
+  border-collapse: collapse;
+  color: #514943;
+  font-size: 0.78rem;
+}
+
+.mini-calendar th,
+.mini-calendar td {
+  width: 14.28%;
+  height: 34px;
+  text-align: center;
+}
+
+.mini-calendar th {
+  border-bottom: 1px solid #d5ccc2;
+  color: #847363;
+  font-size: 0.68rem;
+}
+
+.mini-calendar td strong {
+  display: inline-grid;
+  width: 27px;
+  height: 27px;
+  place-items: center;
+  border-radius: 50%;
+  background: #211b18;
+  color: #fff;
+}
+
+.calendar-link {
+  display: inline-block;
+  margin-top: 14px;
+  color: #493a30;
+  font: 500 0.9rem "Cormorant Garamond", serif;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.dress.lace-panel p:not(.section-script) {
+  color: #51443b;
+}
+
+.dress .swatches i {
+  border-color: rgba(40, 32, 25, 0.2);
+}
+
+.rsvp.lace-panel p:not(.section-script) {
+  color: #51443b;
+}
+
+.rsvp.lace-panel .whatsapp {
+  background: #211b18;
+  color: #fff;
+}
+
+.rsvp.lace-panel .whatsapp.secondary {
+  border-color: #75604d;
+  color: #40352e;
+}
+
+.gallery.lace-panel {
+  padding-bottom: 24px;
+}
+
+.photo-carousel {
+  max-width: 430px;
+  margin: 20px auto 0;
+}
+
+.photo-carousel .photos {
+  display: block;
+  margin: 0;
+}
+
+.photo-carousel .photo-card {
+  display: none;
+  width: 100%;
+  height: 360px;
+  border: 6px solid #fff;
+  background: #fff;
+  box-shadow: 0 9px 25px rgba(40, 30, 24, 0.22);
+}
+
+.photo-carousel .photo-card.is-active {
+  display: block;
+  animation: photo-fade-in 450ms ease both;
+}
+
+.photo-carousel .photo-card:first-child,
+.photo-carousel .photo-card:nth-child(n) {
+  grid-column: auto;
+}
+
+.photo-carousel .photo-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-carousel .photo-card figcaption {
+  padding: 44px 14px 12px;
+  font-size: 1.25rem;
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 12px;
+}
+
+.carousel-arrow {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid #b6a58f;
+  border-radius: 50%;
+  background: #fff;
+  color: #46382e;
+  cursor: pointer;
+  font: 1.8rem/1 "Cormorant Garamond", serif;
+}
+
+.carousel-arrow:hover {
+  background: #eee6dc;
+}
+
+.carousel-counter {
+  min-width: 48px;
+  margin: 0;
+  color: #5f5147;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+}
+
+.music {
+  padding: 45px 20px;
+  background: #101010;
+}
+
+.music .section-script {
+  color: #e5d9c9;
+}
+
+.music .tiny-note {
+  color: #d0c5ba;
+}
+
+footer {
+  background: #050505;
+  border-top: 1px solid #a48c74;
+}
+
+@keyframes photo-fade-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 480px) {
+  .hero.lace-panel,
+  .events.lace-panel,
+  .dress.lace-panel,
+  .rsvp.lace-panel,
+  .gallery.lace-panel {
+    margin: 18px 8px;
+    padding: 24px 10px;
+    border-width: 9px;
+    border-image-slice: 9;
+  }
+
+  .hero.lace-panel .hero-photo {
+    height: min(88vw, 340px);
+  }
+
+  .photo-carousel .photo-card {
+    height: min(86vw, 360px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-carousel .photo-card.is-active {
+    animation: none;
+  }
+}

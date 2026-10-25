@@ -1,0 +1,651 @@
+
+/* =========================================
+   SOBRE DE INVITACIÓN
+   Boda: Jefersson y Karla
+   Compatible con script.js:
+   .cover, .is-opening, .is-revealing
+   ========================================= */
+
+:root {
+  --envelope-wine: #571522;
+  --envelope-dark: #290810;
+  --envelope-light: #76263a;
+  --envelope-gold: #d9b66f;
+  --envelope-gold-light: #f6e3ae;
+  --envelope-paper: #fffaf0;
+}
+
+/* PORTADA COMPLETA */
+
+.cover {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 24px;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      ellipse at 50% 42%,
+      rgba(139, 58, 73, 0.48) 0%,
+      rgba(73, 19, 33, 0.5) 38%,
+      transparent 72%
+    ),
+    linear-gradient(
+      145deg,
+      #17070b 0%,
+      #43101c 45%,
+      #1c080e 100%
+    );
+  perspective: 1400px;
+  transition:
+    opacity 0.7s ease,
+    visibility 0.7s ease;
+}
+
+/* Textura decorativa de fondo */
+
+.cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.25;
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 224, 166, 0.15),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 80% 75%,
+      rgba(255, 224, 166, 0.12),
+      transparent 28%
+    );
+}
+
+/* Brillo suave */
+
+.cover::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(217, 182, 111, 0.3);
+  pointer-events: none;
+}
+
+/* CONTENEDOR DEL SOBRE
+   Se admiten varios nombres de clase habituales. */
+
+.envelope,
+.envelope-wrapper,
+.cover-envelope {
+  position: relative;
+  width: min(440px, 88vw);
+  aspect-ratio: 1.18 / 1;
+  flex-shrink: 0;
+  transform-style: preserve-3d;
+  filter: drop-shadow(0 24px 28px rgba(0, 0, 0, 0.42));
+}
+
+/* CUERPO DEL SOBRE */
+
+.envelope::before,
+.envelope-wrapper::before,
+.cover-envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border: 1px solid rgba(246, 227, 174, 0.55);
+  border-radius: 3px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.08),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #79273a,
+      var(--envelope-wine) 48%,
+      #3a0d18
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -10px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* SOLAPA TRIANGULAR
+   Usa el selector que coincida con tu HTML. */
+
+.envelope-flap,
+.envelope__flap,
+.envelope-lid,
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 58%;
+  transform-origin: top center;
+  transform: rotateX(0deg);
+  backface-visibility: visible;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  background:
+    linear-gradient(
+      160deg,
+      #9a4050 0%,
+      #6e2032 45%,
+      #46111f 100%
+    );
+  border-top: 1px solid rgba(246, 227, 174, 0.7);
+  filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.16));
+  transition:
+    transform 0.85s cubic-bezier(0.22, 0.75, 0.24, 1),
+    filter 0.85s ease;
+}
+
+/* TRIÁNGULO INFERIOR Y LATERALES */
+
+.envelope-front,
+.envelope__front,
+.envelope-body,
+.envelope-panel {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      35deg,
+      transparent 49.5%,
+      rgba(217, 182, 111, 0.42) 50%,
+      transparent 50.5%
+    ),
+    linear-gradient(
+      -35deg,
+      transparent 49.5%,
+      rgba(217, 182, 111, 0.42) 50%,
+      transparent 50.5%
+    );
+}
+
+/* SELLO DORADO */
+
+.seal,
+.wax-seal,
+.envelope-seal,
+.envelope__seal {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(66px, 17vw, 82px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border: 2px solid #f1d99c;
+  border-radius: 50%;
+  color: #fff0c6;
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      #f4df9e 0%,
+      #c59a4d 28%,
+      #8d622a 72%,
+      #6d451f 100%
+    );
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 4px rgba(91, 48, 20, 0.22),
+    inset 0 0 0 6px rgba(255, 238, 189, 0.42);
+  transition:
+    opacity 0.3s ease,
+    transform 0.55s ease;
+}
+
+.seal::before,
+.wax-seal::before,
+.envelope-seal::before,
+.envelope__seal::before {
+  content: "J & K";
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(13px, 3.4vw, 17px);
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 1px rgba(70, 30, 12, 0.5);
+}
+
+/* TARJETA INTERIOR
+   Estos selectores cubren nombres habituales de tarjeta. */
+
+.invitation-card,
+.envelope-card,
+.cover-card,
+.envelope__card,
+.invitation-preview {
+  position: absolute;
+  top: 5%;
+  left: 8%;
+  z-index: 1;
+  width: 84%;
+  height: 90%;
+  overflow: hidden;
+  border: 1px solid var(--envelope-gold);
+  border-radius: 2px;
+  background: var(--envelope-paper);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+  transform: translateY(0) scale(0.94);
+  transition:
+    transform 0.95s cubic-bezier(0.2, 0.75, 0.25, 1),
+    box-shadow 0.7s ease;
+}
+
+/* Foto de portada, si la tarjeta contiene una imagen */
+
+.invitation-card img,
+.envelope-card img,
+.cover-card img,
+.envelope__card img,
+.invitation-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* BOTÓN ABRIR */
+
+#open {
+  position: absolute;
+  top: calc(100% + 28px);
+  left: 50%;
+  z-index: 10;
+  min-width: 150px;
+  padding: 13px 28px;
+  transform: translateX(-50%);
+  border: 1px solid var(--envelope-gold);
+  border-radius: 2px;
+  color: var(--envelope-gold-light);
+  background: rgba(36, 7, 14, 0.82);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    opacity 0.3s ease;
+}
+
+#open:hover {
+  color: #30101a;
+  background: var(--envelope-gold-light);
+  border-color: #fff0c6;
+}
+
+#open:focus-visible {
+  outline: 2px solid #fff0c6;
+  outline-offset: 5px;
+}
+
+#open:disabled {
+  cursor: default;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ANIMACIÓN: ABRIR SOLAPA Y EXTRAER TARJETA */
+
+.cover.is-opening .envelope-flap,
+.cover.is-opening .envelope__flap,
+.cover.is-opening .envelope-lid,
+.cover.is-opening .flap {
+  transform: rotateX(180deg);
+  filter: brightness(1.12);
+}
+
+.cover.is-opening .invitation-card,
+.cover.is-opening .envelope-card,
+.cover.is-opening .cover-card,
+.cover.is-opening .envelope__card,
+.cover.is-opening .invitation-preview {
+  z-index: 4;
+  transform: translateY(-38%) scale(1);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.28);
+}
+
+.cover.is-opening .seal,
+.cover.is-opening .wax-seal,
+.cover.is-opening .envelope-seal,
+.cover.is-opening .envelope__seal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.6);
+}
+
+/* REVELACIÓN FINAL */
+
+.cover.is-revealing {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* MOVIMIENTO REDUCIDO */
+
+@media (prefers-reduced-motion: reduce) {
+  .cover,
+  .envelope-flap,
+  .envelope__flap,
+  .envelope-lid,
+  .flap,
+  .invitation-card,
+  .envelope-card,
+  .cover-card,
+  .envelope__card,
+  .invitation-preview,
+  .seal,
+  .wax-seal,
+  .envelope-seal,
+  .envelope__seal {
+    transition-duration: 0.01ms;
+  }
+}
+
+/* TELÉFONOS */
+
+@media (max-width: 480px) {
+  .cover {
+    padding: 18px;
+  }
+
+  .envelope,
+  .envelope-wrapper,
+  .cover-envelope {
+    width: min(360px, 88vw);
+  }
+
+  #open {
+    top: calc(100% + 24px);
+    min-width: 140px;
+    padding: 12px 22px;
+    font-size: 12px;
+  }
+
+  .cover::after {
+    inset: 8px;
+  }
+}
+
+/* Layout for the photo-envelope cover used by index.html */
+.cover-inner {
+  position: relative;
+  z-index: 1;
+  width: min(500px, 100%);
+  height: min(82vh, 700px);
+  height: min(82svh, 700px);
+  min-height: 480px;
+  display: grid;
+  grid-template-rows: 42px minmax(0, 1fr);
+  text-align: center;
+}
+
+.cover-kicker {
+  align-self: center;
+  margin: 0;
+  color: #f5eee5;
+  font: 600 0.82rem "Cormorant Garamond", Georgia, serif;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.envelope-scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  perspective: 1100px;
+}
+
+.envelope-photo-card {
+  position: absolute;
+  z-index: 1;
+  top: 3%;
+  left: 50%;
+  width: min(68%, 310px);
+  height: 60%;
+  padding: 8px;
+  transform: translateX(-50%) rotate(5deg);
+  border: 1px solid #ded7cf;
+  border-radius: 3px;
+  background: #faf8f5;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+  transition: transform 900ms cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+.envelope-photo-card img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.envelope {
+  position: absolute;
+  z-index: 2;
+  right: 2%;
+  bottom: 7%;
+  left: 2%;
+  width: auto;
+  height: auto;
+  aspect-ratio: 1.18 / 1;
+  transform: translateY(0);
+  transform-style: preserve-3d;
+  filter: drop-shadow(0 20px 24px rgba(0, 0, 0, 0.5));
+  transition: transform 800ms ease, opacity 650ms ease;
+}
+
+.envelope::before {
+  content: none;
+}
+
+.envelope-back,
+.envelope-pocket,
+.envelope-flap {
+  position: absolute;
+  inset: 0;
+}
+
+.envelope-back {
+  z-index: 1;
+  border: 1px solid #e4dcd2;
+  background: linear-gradient(180deg, #fff, #e9e3dc);
+  box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.45);
+}
+
+.envelope-pocket {
+  z-index: 2;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 4px 4px, rgba(143, 126, 108, 0.2) 0 1px, transparent 1.5px) 0 0 / 8px 8px,
+    linear-gradient(145deg, #fff, #e8e2db);
+  clip-path: polygon(0 0, 50% 47%, 100% 0, 100% 100%, 0 100%);
+}
+
+.envelope-pocket::before,
+.envelope-pocket::after {
+  position: absolute;
+  top: 21%;
+  width: 27%;
+  height: 48%;
+  background: url("assets/ornamento-floral.svg") center / contain no-repeat;
+  content: "";
+  filter: grayscale(1);
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+.envelope-pocket::before {
+  left: 1%;
+  transform: rotate(-55deg);
+}
+
+.envelope-pocket::after {
+  right: 1%;
+  transform: scaleX(-1) rotate(-55deg);
+}
+
+.envelope-flap {
+  z-index: 7;
+  transform: rotateX(0);
+  transform-origin: 50% 0;
+  background: linear-gradient(160deg, #fff 0%, #f5f1eb 55%, #e7e0d8 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 53%);
+  backface-visibility: hidden;
+  transition: transform 850ms cubic-bezier(0.2, 0.7, 0.25, 1);
+}
+
+.envelope-letter {
+  position: absolute;
+  z-index: 3;
+  top: 12%;
+  right: 8px;
+  left: 8px;
+  color: #39312d;
+  pointer-events: none;
+}
+
+.envelope-names {
+  margin: 0;
+  font: 400 clamp(1.6rem, 7vw, 2.25rem)/1.1 "Great Vibes", cursive;
+}
+
+.envelope-names span {
+  color: #a38b72;
+}
+
+.envelope-date {
+  margin: 5px 0 0;
+  color: #75685c;
+  font: 500 0.65rem "Montserrat", sans-serif;
+  letter-spacing: 0.18em;
+}
+
+#open.envelope-seal {
+  position: absolute;
+  top: 72%;
+  left: 50%;
+  z-index: 8;
+  display: grid;
+  width: clamp(66px, 17vw, 82px);
+  min-width: 0;
+  aspect-ratio: 1;
+  padding: 0;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  border: 2px solid #e4d5c3;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #c8b59e, #927a61 72%);
+  box-shadow: 0 4px 12px rgba(53, 19, 28, 0.4), inset 0 0 0 4px rgba(255, 255, 255, 0.12);
+  color: #fffaf2;
+  cursor: pointer;
+  font: 700 1.15rem "Cormorant Garamond", Georgia, serif;
+  letter-spacing: 0;
+  transition: transform 450ms ease, opacity 450ms ease;
+}
+
+#open.envelope-seal::before {
+  content: none;
+}
+
+#open.envelope-seal span {
+  color: inherit;
+  font: inherit;
+}
+
+#open.envelope-seal .seal-ampersand {
+  color: #fffaf2;
+}
+
+#open.envelope-seal:hover {
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+#open.envelope-seal:disabled {
+  opacity: 0;
+}
+
+.envelope-prompt {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  color: #f4eee6;
+  font: 500 0.66rem "Montserrat", sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  animation: seal-prompt 2s ease-in-out infinite;
+}
+
+.cover.is-opening .envelope-flap {
+  transform: rotateX(180deg);
+}
+
+.cover.is-opening .envelope-photo-card {
+  transform: translate(-50%, -115px) rotate(0) scale(1.03);
+}
+
+.cover.is-opening .envelope {
+  transform: translateY(80px);
+  opacity: 0;
+}
+
+.cover.is-opening .envelope-prompt {
+  opacity: 0;
+}
+
+@media (max-width: 480px) {
+  .cover-inner {
+    height: min(82vh, 700px);
+    height: min(82svh, 700px);
+    min-height: 480px;
+    grid-template-rows: 38px minmax(0, 1fr);
+  }
+
+  .envelope-photo-card {
+    width: min(68%, 300px);
+    height: 59%;
+  }
+
+  .envelope {
+    right: 2%;
+    left: 2%;
+    width: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-inner *,
+  .cover-inner *::before,
+  .cover-inner *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
