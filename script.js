@@ -1,4 +1,4 @@
-﻿const weddingDate = new Date("2026-12-19T16:00:00-05:00");
+const weddingDate = new Date("2026-12-18T16:00:00-05:00");
 const music = document.getElementById("music");
 const button = document.getElementById("musicButton");
 const openButton = document.getElementById("open");
@@ -96,7 +96,7 @@ function tick() {
 tick();
 setInterval(tick, 1000);
 
-const text = encodeURIComponent("¡Hola! Confirmo mi asistencia a la boda de Karla Santillán y Jefersson Mantuano, el 19 de diciembre de 2026. Mi nombre es: ");
+const text = encodeURIComponent("¡Hola! Confirmo mi asistencia a la boda de Karla Santillán y Jefersson Mantuano, el 18 de diciembre de 2026. Mi nombre es: ");
 document.getElementById("waKarla").href = "https://wa.me/593991369750?text=" + text;
 document.getElementById("waJefersson").href = "https://wa.me/593986418486?text=" + text;
 

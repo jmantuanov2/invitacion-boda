@@ -13,7 +13,7 @@ Se incluyeron recortes de las fotos que aparecen en la captura que usted envió.
 - recepcion.jpg (salón)
 
 DATOS
-Fecha: sábado 19 de diciembre de 2026.
+Fecha: viernes 18 de diciembre de 2026.
 Ceremonia civil: Registro Civil Puyo, 16:00.
 Recepción: La Bella Vista, Puyo, 19:00 (según la captura).
 Testigos: Miguel Cedeño y Diana Heredia.
