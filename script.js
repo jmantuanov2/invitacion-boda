@@ -6,8 +6,8 @@ const cover = document.getElementById("cover");
 const particleLayer = document.querySelector(".cover-particles");
 
 function createCoverParticles() {
-  const symbols = ["✦", "♥", "✧", "♡"];
-  const particleCount = 28;
+  const symbols = ["✦", "✧", "⋆", "✧"];
+  const particleCount = 36;
 
   for (let index = 0; index < particleCount; index += 1) {
     const angle = Math.PI + (index / (particleCount - 1)) * Math.PI;
@@ -18,7 +18,7 @@ function createCoverParticles() {
     particle.style.setProperty("--particle-x", `${Math.cos(angle) * distance}px`);
     particle.style.setProperty("--particle-y", `${Math.sin(angle) * distance}px`);
     particle.style.setProperty("--particle-size", `${15 + (index % 4) * 4}px`);
-    particle.style.setProperty("--particle-delay", `${(index % 6) * 35}ms`);
+    particle.style.setProperty("--particle-delay", `${(index % 9) * 55}ms`);
     particle.style.setProperty("--particle-rotation", `${(index % 2 ? -1 : 1) * (25 + index % 5 * 12)}deg`);
     particle.addEventListener("animationend", () => particle.remove(), { once: true });
     particleLayer.append(particle);
@@ -53,14 +53,16 @@ function openInvitation() {
   cover.classList.add("is-opening");
 
   setTimeout(() => {
-    document.getElementById("site").classList.remove("hidden");
+    const site = document.getElementById("site");
+    site.classList.remove("hidden");
+    site.classList.add("is-entering");
     button.classList.add("is-floating");
     updateMusicButtonState(!music.paused);
     cover.classList.add("is-revealing");
     window.scrollTo({ top: 0, behavior: "smooth" });
     setTimeout(() => {
       cover.style.display = "none";
-    }, 750);
+    }, 1300);
   }, 1100);
 }
 

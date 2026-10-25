@@ -111,7 +111,7 @@
   opacity: 0;
   text-shadow: 0 2px 10px rgba(255, 255, 255, .75);
   transform: translate(-50%, -50%) scale(.2);
-  animation: cover-particle-burst 1350ms cubic-bezier(.16, .72, .25, 1) both;
+  animation: cover-particle-burst 1850ms cubic-bezier(.16, .72, .25, 1) both;
   animation-delay: var(--particle-delay);
 }
 
@@ -124,10 +124,11 @@
     opacity: 0;
     transform: translate(-50%, -50%) scale(.2) rotate(0);
   }
-  18% {
+  22% {
     opacity: 1;
+    transform: translate(-50%, -50%) scale(.7) rotate(0deg);
   }
-  62% {
+  68% {
     opacity: 1;
     transform: translate(calc(-50% + var(--particle-x)), calc(-50% + var(--particle-y))) scale(1) rotate(var(--particle-rotation));
   }
@@ -300,6 +301,25 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  transition: opacity 1200ms ease, visibility 0s linear 1200ms;
+}
+
+#site.is-entering {
+  animation: invitation-enter 1450ms cubic-bezier(.2, .7, .25, 1) both;
+  transform-origin: top center;
+}
+
+@keyframes invitation-enter {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(28px) scale(.985);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
 }
 
 body {
@@ -766,18 +786,22 @@ footer {
     animation-duration: 650ms !important;
   }
 
+  #site.is-entering {
+    animation-duration: 900ms !important;
+  }
+
   .cover .envelope-flap,
   .cover .cover-heart {
     transition-duration: 350ms !important;
   }
 
   .cover.is-revealing {
-    transition-duration: 450ms !important;
+    transition: opacity 700ms ease, visibility 0s linear 700ms !important;
   }
 
   .cover .cover-particle {
     animation-name: reduced-cover-particle;
-    animation-duration: 800ms !important;
+    animation-duration: 1100ms !important;
   }
 
   @keyframes reduced-cover-particle {
