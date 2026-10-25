@@ -8,6 +8,16 @@ const particleLayer = document.querySelector(".cover-particles");
 function createCoverParticles() {
   const symbols = ["✦", "✧", "⋆", "✧"];
   const particleCount = 36;
+  const petalCount = 10;
+
+  for (let index = 0; index < petalCount; index += 1) {
+    const petal = document.createElement("span");
+    petal.className = "cover-petal";
+    petal.setAttribute("aria-hidden", "true");
+    petal.style.setProperty("--petal-angle", `${(360 / petalCount) * index}deg`);
+    petal.style.setProperty("--petal-delay", `${index * 30}ms`);
+    particleLayer.append(petal);
+  }
 
   for (let index = 0; index < particleCount; index += 1) {
     const angle = Math.PI + (index / (particleCount - 1)) * Math.PI;

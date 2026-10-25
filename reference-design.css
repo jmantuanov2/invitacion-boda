@@ -115,6 +115,45 @@
   animation-delay: var(--particle-delay);
 }
 
+.cover-petal {
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  width: clamp(74px, 21vw, 145px);
+  height: clamp(130px, 38vw, 240px);
+  border: 1px solid rgba(255, 239, 220, .8);
+  border-radius: 52% 52% 46% 46%;
+  background:
+    radial-gradient(ellipse at 50% 82%, rgba(255, 247, 230, .94), transparent 53%),
+    linear-gradient(180deg, rgba(246, 207, 212, .94), rgba(208, 156, 167, .9));
+  box-shadow: 0 0 28px rgba(255, 226, 214, .42), inset 0 0 20px rgba(255, 255, 255, .45);
+  opacity: 0;
+  transform: translate(-50%, -100%) rotate(var(--petal-angle)) scale(.08);
+  transform-origin: 50% 100%;
+  animation: flower-petal-open 2100ms cubic-bezier(.2, .72, .22, 1) both;
+  animation-delay: var(--petal-delay);
+  pointer-events: none;
+}
+
+@keyframes flower-petal-open {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -100%) rotate(var(--petal-angle)) scale(.08);
+  }
+  20% {
+    opacity: .95;
+    transform: translate(-50%, -100%) rotate(var(--petal-angle)) scale(.42);
+  }
+  72% {
+    opacity: .9;
+    transform: translate(-50%, -100%) rotate(var(--petal-angle)) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -100%) rotate(var(--petal-angle)) scale(1.12);
+  }
+}
+
 .cover-particle.is-heart {
   color: #81585b;
 }
@@ -802,6 +841,10 @@ footer {
   .cover .cover-particle {
     animation-name: reduced-cover-particle;
     animation-duration: 1100ms !important;
+  }
+
+  .cover .cover-petal {
+    animation-duration: 1400ms !important;
   }
 
   @keyframes reduced-cover-particle {
